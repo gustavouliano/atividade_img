@@ -9,7 +9,16 @@ const oFile = new FileManagement();
 const oConversor = new Conversor();
 const oRestructureImage = new RestructureImage();
 
-atividade09();
+// atividade09();
+
+atividade11();
+
+function atividade11(){
+    oRestructureImage.equalize('Fig0316(1)(top_left).tif', 'Fig1Equalized.tif');
+    oRestructureImage.equalize('Fig0316(2)(2nd_from_top).tif', 'Fig2Equalized.tif');
+    oRestructureImage.equalize('Fig0316(3)(third_from_top).tif', 'Fig3Equalized.tif');
+    oRestructureImage.equalize('Fig0316(4)(bottom_left).tif', 'Fig4Equalized.tif');
+}
 
 function atividade09(){
     // let oImageP2 = oRestructureImage.readP2('EntradaEscalaCinza');

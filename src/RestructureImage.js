@@ -1,3 +1,4 @@
+const gm = require('gm');
 const FileManagement = require('./FileManagement');
 const ImageP2 = require('./ImageP2');
 const ImageP3 = require('./ImageP3');
@@ -182,6 +183,19 @@ class RestructureImage {
                 oImage.matrix[i][j] = Math.round(oImage.matrix[i][j] * value);
             }
         }
+    }
+
+    equalize(filename, newFilename){
+        gm(`./../temp/img/${filename}`)
+        .equalize()
+        .write(`./../temp/img/${newFilename}`, (err) => {
+            if (err){
+                console.log(err)
+            }
+            else{
+                console.log(`Gerada imagem ${newFilename} com equalização`);
+            }
+        })
     }
 
 }
