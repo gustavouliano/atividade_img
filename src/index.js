@@ -9,9 +9,18 @@ const oFile = new FileManagement();
 const oConversor = new Conversor();
 const oRestructureImage = new RestructureImage();
 
-// atividade09();
+// atividade11();
 
-atividade11();
+atividade12();
+
+function atividade12(){
+    let oImageP3 = oRestructureImage.readP3('EntradaRGB');
+    oImageP3.rotate180();
+    oFile.create(oImageP3, 'EntradaRGB180graus');
+    oImageP3 = oRestructureImage.readP3('EntradaRGB');
+    oImageP3.rotate90();
+    oFile.create(oImageP3, 'EntradaRGB90graus');
+}
 
 function atividade11(){
     oRestructureImage.equalize('Fig0316(1)(top_left).tif', 'Fig1Equalized.tif');

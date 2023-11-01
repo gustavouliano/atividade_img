@@ -101,6 +101,38 @@ class ImageP3 {
         this.matrix = newMatrix;
     }
 
+    /**
+     * Rotaciona a imagem em 180 graus
+     */
+    rotate180(){
+        const newMatrix = [];
+        for (let i = this.matrix.length - 1; i > 0; i--) {
+            newMatrix.push([]);
+            for (let j = 0; j < this.matrix[i].length; j++){
+                newMatrix[newMatrix.length - 1][j] = this.matrix[i][j];
+            }
+        }
+        this.matrix = newMatrix;
+    }
+
+    /**
+     * Rotaciona a imagem em 90 graus
+     */
+    rotate90(){
+        const numRows = this.matrix.length;
+        const numCols = this.matrix[0].length;
+
+        const newMatrix = new Array(numCols).fill(0).map(() => new Array(numRows).fill(0));
+
+        for (let i = 0; i < numRows; i++) {
+            newMatrix.push([]);
+            for (let j = 0; j < numCols; j++) {
+                newMatrix[j][numRows - 1 - i] = this.matrix[i][j];
+            }
+        }
+        this.matrix = newMatrix;
+    }
+
     getNewContent(){
         let sContent = this.magicNumber + '\n'
         + this.colNumber + ' ' + this.rowNumber + '\n'

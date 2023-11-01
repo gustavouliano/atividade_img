@@ -37,7 +37,6 @@ class FileManagement {
             console.log(error);
         }
     }
-
 }
 
 module.exports = FileManagement

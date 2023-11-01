@@ -18,6 +18,18 @@ class ImageP1 {
         }
     }
 
+    rotate180(){
+        const newMatrix = [];
+        for (let i = this.matrix.length; i > 0; i--) {
+            newMatrix[newMatrix.length - 1] = [];
+            for (let j = 0; j < this.matrix[i].length; j++){
+                newMatrix[newMatrix.length - 1][j] = this.matrix[i][j];
+            }
+        }
+        this.matrix = newMatrix;
+    }
+        
+
     getNewContent(){
         let content = this.magicNumber + '\n'
         + this.colNumber + ' ' + this.rowNumber + '\n'
