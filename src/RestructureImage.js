@@ -198,6 +198,32 @@ class RestructureImage {
         })
     }
 
+    realce(oImage){
+        const matrix = oImage.matrix;
+        let xMax = matrix[0][0];
+        let xMin = matrix[0][0];
+      
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] > xMax) {
+                    xMax = matrix[i][j];
+                }
+                if (matrix[i][j] < xMin) {
+                    xMin = matrix[i][j];
+                }
+            }
+        }
+
+        let valA = 255/(xMax - xMin);
+        let valB = -valA * xMin;
+
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = (valA * matrix[i][j]) + valB;
+            }
+        }
+    }
+
 }
 
 module.exports = RestructureImage;

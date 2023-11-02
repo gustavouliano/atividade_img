@@ -9,9 +9,16 @@ const oFile = new FileManagement();
 const oConversor = new Conversor();
 const oRestructureImage = new RestructureImage();
 
+atividade10();
 // atividade11();
+// atividade12();
+// atividade13();
 
-atividade12();
+function atividade13(){
+    let oImageA = oRestructureImage.readP3('com');
+    let oImageB = oRestructureImage.readP3('sem');
+    oRestructureImage.imageAddition(oImageA, oImageB);
+}
 
 function atividade12(){
     let oImageP3 = oRestructureImage.readP3('EntradaRGB');
@@ -27,6 +34,15 @@ function atividade11(){
     oRestructureImage.equalize('Fig0316(2)(2nd_from_top).tif', 'Fig2Equalized.tif');
     oRestructureImage.equalize('Fig0316(3)(third_from_top).tif', 'Fig3Equalized.tif');
     oRestructureImage.equalize('Fig0316(4)(bottom_left).tif', 'Fig4Equalized.tif');
+}
+
+function atividade10(){
+    const oImageP2 = oRestructureImage.readP2('EntradaEscalaCinza');
+    const oImageP3 = oRestructureImage.readP3('EntradaRGB')
+    oRestructureImage.realce(oImageP2);
+    oRestructureImage.realce(oImageP3);
+    oFile.create(oImageP2, 'EntradaEscalaCinza-Realce');
+    oFile.create(oImageP3, 'EntradaRGB-Realce');
 }
 
 function atividade09(){
